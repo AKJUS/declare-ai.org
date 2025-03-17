@@ -263,8 +263,16 @@
       <section class="pa-3">
       <h4 class="mt-0 measure mh-auto tc">EXIF</h4>
       <p>
-        Most image formats support EXIF data.  If you wish to make a declaration on an image, use two <code>UserComment</code> EXIF tags: one that says <code>generative-ai-declaration:level=«level»</code> (using one of the levels above), and <code>generative-ai-declaration:version=«version»</code>. You can use additional <code>UserComment</code> tags for <code>generative-ai-declaration:ai-name</code> and <code>generative-ai-declaration:details</code>.
+        Most image formats support EXIF data.  If you wish to make a declaration on an image, use the <code>UserComment</code> EXIF tag with this format:
       </p>
+      <code class="db mh-auto measure-wide overflow-x-scroll bg-black green-light br-3 pa-3 bc-green-light ba"><pre>generative-ai-declaration:level=«level»;generative-ai-declaration:version=«version»</pre></code>
+        <p>
+          You can append the <code>ai-content-declaration:ai-name</code> and <code>ai-content-declaration:details</code> to the <code>UserComment</code> using the same format.
+      </p>
+      <p>
+        You can do this with <code>exiftool</code> like so:
+      </p>
+      <code class="db mh-auto measure-wide overflow-x-scroll bg-black green-light br-3 pa-3 bc-green-light ba"><pre>&gt; exiftool -UserComment="generative-ai-declaration:level=«level»;generative-ai-declaration:version=«version»" «file»</pre></code>
       </section>
       <a name="id3"></a>
       <section class="pa-3">
